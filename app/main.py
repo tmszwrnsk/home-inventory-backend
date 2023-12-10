@@ -3,10 +3,14 @@ import logging
 
 from fastapi import FastAPI
 
+from app import models
 from app.config import settings
+from app.database import engine
 from app.routers import root_api_router
 
 log: logging.Logger = logging.getLogger(__name__)
+
+models.Base.metadata.create_all(bind=engine)
 
 log.debug("Initialize FastAPI application.")
 app = FastAPI(

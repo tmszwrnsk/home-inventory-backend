@@ -8,8 +8,9 @@ Resources:
 """
 from fastapi import APIRouter
 
-from app.routers import ready
+from app.routers import items, ready
 
 root_api_router = APIRouter(prefix="/api")
 
 root_api_router.include_router(ready.router, tags=["ready"])
+root_api_router.include_router(items.router, tags=["items"])
