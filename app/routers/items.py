@@ -1,5 +1,4 @@
 """Application implementation - Items router."""
-import logging
 from typing import Sequence
 
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -9,7 +8,6 @@ from app import models, schemas
 from app.dependencies import get_db
 
 router = APIRouter()
-log: logging.Logger = logging.getLogger(__name__)
 
 
 @router.post(

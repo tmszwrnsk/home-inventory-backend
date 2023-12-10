@@ -1,12 +1,10 @@
 """Application implementation - Ready router."""
-import logging
 
 from fastapi import APIRouter, status
 
 from app import schemas
 
 router = APIRouter()
-log: logging.Logger = logging.getLogger(__name__)
 
 
 @router.get(
@@ -27,6 +25,5 @@ def readiness_check() -> schemas.ReadyResponse:
         response (ReadyResponse): ReadyResponse model object instance.
 
     """
-    log.info("Started GET /ready")
 
     return schemas.ReadyResponse(status="ok")

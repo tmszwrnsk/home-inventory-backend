@@ -14,8 +14,3 @@ Resources:
     https://pydantic-docs.helpmanual.io/
 
 """
-import logging
-
-# initialize logging
-log: logging.Logger = logging.getLogger(__name__)
-log.addHandler(logging.NullHandler())
