@@ -2,6 +2,7 @@
 import logging
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from app import models
 from app.config import settings
@@ -21,3 +22,15 @@ app = FastAPI(
 )
 log.debug("Add application routes.")
 app.include_router(root_api_router)
+
+origins: list[str] = [
+    "http://localhost:5173",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
